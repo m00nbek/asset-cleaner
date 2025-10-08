@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import List, Optional
 
 from .scanner import find_assets_directory, scan_assets, EXCLUDE_DIR_NAMES
-from .deleter import delete_assets, load_unused_list
+from .deleter import delete_assets, load_unused_list, format_size
 
 
 def print_header():
@@ -116,6 +116,10 @@ def main() -> int:
     
     if not unused_names:
         print("\n✅ No unused assets detected. Your project is clean!")
+        # Cleanup temporary directory
+        if output_dir.exists():
+            import shutil
+            shutil.rmtree(output_dir)
         return 0
     
     print(f"\n📋 Found {len(unused_names)} unused asset(s):")
@@ -135,11 +139,19 @@ def main() -> int:
     # Delete unused assets
     print("\n🗑️  Deleting unused assets...")
     try:
-        deleted = delete_assets(assets_path, unused_names, dry_run=False)
+        deleted, total_bytes = delete_assets(assets_path, unused_names, dry_run=False)
         print(f"\n✅ Successfully deleted {len(deleted)} asset(s).")
+        print(f"💾 Storage freed: {format_size(total_bytes)}")
     except Exception as e:
         print(f"\n❌ Deletion failed: {e}")
         return 1
+    
+    # Cleanup temporary directory
+    print("\n🧹 Cleaning up temporary files...")
+    if output_dir.exists():
+        import shutil
+        shutil.rmtree(output_dir)
+        print(f"   Removed {output_dir}")
     
     print("\n✨ All done! Your asset catalog is now clean.")
     return 0

@@ -4,7 +4,7 @@
 import os
 import shutil
 from pathlib import Path
-from typing import List, Optional
+from typing import List, Optional, Tuple
 
 
 ASSET_DIR_SUFFIXES = {
@@ -58,22 +58,51 @@ def match_asset_dirs(asset_names: List[str], assets_root: Path) -> List[Path]:
     return matched
 
 
-def delete_assets(assets_path: Path, unused_names: List[str], dry_run: bool = True) -> List[Path]:
+def get_directory_size(path: Path) -> int:
+    """Calculate total size of directory in bytes."""
+    total = 0
+    try:
+        for entry in os.scandir(path):
+            if entry.is_file(follow_symlinks=False):
+                total += entry.stat().st_size
+            elif entry.is_dir(follow_symlinks=False):
+                total += get_directory_size(Path(entry.path))
+    except (PermissionError, OSError):
+        pass
+    return total
+
+
+def format_size(bytes_size: int) -> str:
+    """Format bytes into human-readable size."""
+    for unit in ['B', 'KB', 'MB', 'GB']:
+        if bytes_size < 1024.0:
+            return f"{bytes_size:.1f} {unit}"
+        bytes_size /= 1024.0
+    return f"{bytes_size:.1f} TB"
+
+
+def delete_assets(assets_path: Path, unused_names: List[str], dry_run: bool = True) -> Tuple[List[Path], int]:
     """
     Delete unused asset directories.
-    Returns list of deleted paths.
+    Returns tuple of (deleted paths, total bytes freed).
     """
     dirs_to_delete = match_asset_dirs(unused_names, assets_path)
     deleted: List[Path] = []
+    total_size = 0
     
     for d in sorted(dirs_to_delete, key=lambda p: str(p)):
         if not d.exists():
             continue
+        
+        # Calculate size before deletion
+        dir_size = get_directory_size(d)
+        total_size += dir_size
+        
         if dry_run:
-            print(f"DRY-RUN would delete: {d}")
+            print(f"DRY-RUN would delete: {d} ({format_size(dir_size)})")
         else:
             shutil.rmtree(d)
-            print(f"Deleted: {d}")
+            print(f"Deleted: {d} ({format_size(dir_size)})")
             deleted.append(d)
     
-    return deleted
+    return deleted, total_size
