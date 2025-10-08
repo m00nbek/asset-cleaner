@@ -1,5 +1,34 @@
 # Release Notes
 
+## v1.1.0 (2025-10-08)
+
+### What's New
+- 💾 **Storage Reporting**: Shows the size of each deleted asset and total storage freed
+- 🧹 **Automatic Cleanup**: Removes `.assetcleaner` temporary directory after completion
+- ✨ **Better UX**: More informative output with storage metrics
+
+### Features
+- Display individual asset sizes during deletion (e.g., "Deleted: old_icon.imageset (125.3 KB)")
+- Show total storage freed at the end (e.g., "Storage freed: 2.5 MB")
+- Automatically clean up temporary `.assetcleaner` folder after process completes
+- Clean up temp folder even when no unused assets are found
+
+### Installation
+
+```bash
+# Via Homebrew
+brew tap m00nbek/tap
+brew upgrade assetcleaner  # If already installed
+brew install assetcleaner  # Fresh install
+```
+
+### Technical Details
+- **Version**: 1.1.0
+- **SHA256**: `089bdffa74df43be1f25660f84507e4b0393703b1f891949ea148ef9e6bc305e`
+- **Release URL**: https://github.com/m00nbek/asset-cleaner/archive/refs/tags/v1.1.0.tar.gz
+
+---
+
 ## v1.0.1 (2025-10-08)
 
 ### What's Changed
