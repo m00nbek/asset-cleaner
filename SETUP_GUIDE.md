@@ -65,7 +65,7 @@ git commit -m "Initial commit: Asset Cleaner v1.0.0"
 ### 3. Push to GitHub
 
 ```bash
-git remote add origin https://github.com/YOUR_USERNAME/asset-cleaner.git
+git remote add origin https://github.com/m00nbek/asset-cleaner.git
 git branch -M main
 git push -u origin main
 ```
@@ -89,7 +89,7 @@ git push -u origin main
 # Create a new GitHub repo named "homebrew-tap"
 # Then clone it locally
 cd ~/Developer
-git clone https://github.com/YOUR_USERNAME/homebrew-tap.git
+git clone https://github.com/m00nbek/homebrew-tap.git
 cd homebrew-tap
 ```
 
@@ -99,7 +99,7 @@ First, get the SHA256 of your release:
 
 ```bash
 # After creating a GitHub release, download the tarball
-curl -L https://github.com/YOUR_USERNAME/asset-cleaner/archive/v1.0.0.tar.gz -o asset-cleaner.tar.gz
+curl -L https://github.com/m00nbek/asset-cleaner/archive/v1.0.0.tar.gz -o asset-cleaner.tar.gz
 
 # Calculate SHA256
 shasum -a 256 asset-cleaner.tar.gz
@@ -111,9 +111,7 @@ shasum -a 256 asset-cleaner.tar.gz
 # Copy the formula to your tap
 cp ~/Developer/asset-cleaner/assetcleaner.rb ~/Developer/homebrew-tap/assetcleaner.rb
 
-# Edit the formula and replace:
-# - YOUR_USERNAME with your GitHub username
-# - YOUR_SHA256_HERE with the actual SHA256 hash
+# The formula is already updated with correct URLs and SHA256!
 ```
 
 #### 4. Publish Your Tap
@@ -128,7 +126,7 @@ git push origin main
 #### 5. Install from Your Tap
 
 ```bash
-brew tap YOUR_USERNAME/tap
+brew tap m00nbek/tap
 brew install assetcleaner
 ```
 
@@ -257,7 +255,7 @@ Once published, users can install with:
 
 ```bash
 # Via Homebrew (your tap)
-brew tap YOUR_USERNAME/tap
+brew tap m00nbek/tap
 brew install assetcleaner
 
 # Via pip

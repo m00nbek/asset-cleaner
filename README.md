@@ -26,7 +26,7 @@ Asset Cleaner is a powerful command-line tool that scans your Xcode projects to 
 ### Via Homebrew (Recommended)
 
 ```bash
-brew tap yourusername/tap
+brew tap m00nbek/tap
 brew install assetcleaner
 ```
 
@@ -39,7 +39,7 @@ pip install assetcleaner
 ### From Source
 
 ```bash
-git clone https://github.com/yourusername/asset-cleaner.git
+git clone https://github.com/m00nbek/asset-cleaner.git
 cd asset-cleaner
 pip install -e .
 ```
@@ -69,7 +69,7 @@ Find and remove unused assets from your Xcode projects.
 
 Searching for .xcassets directories...
 
-Found 1 asset catalog: Symptom Checker/Symptom Checker/Resources/Assets.xcassets
+Found 1 asset catalog: MyApp/MyApp/Resources/Assets.xcassets
 Use this catalog? [Y/n] y
 
 🔍 Scanning for asset usage in: Assets.xcassets

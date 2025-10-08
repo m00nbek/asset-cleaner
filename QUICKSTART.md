@@ -35,7 +35,7 @@ pip3 install -e . --user
 
 ```bash
 # Go to your Xcode project
-cd ~/Developer/symptom-checker-ios
+cd ~/path/to/your-xcode-project
 
 # Run the tool
 assetcleaner
@@ -66,8 +66,8 @@ git add .
 # Commit
 git commit -m "Initial release: Asset Cleaner v1.0.0"
 
-# Add remote (replace YOUR_USERNAME)
-git remote add origin https://github.com/YOUR_USERNAME/asset-cleaner.git
+# Add remote
+git remote add origin https://github.com/m00nbek/asset-cleaner.git
 
 # Push
 git branch -M main
@@ -76,7 +76,7 @@ git push -u origin main
 
 ### Step 3: Create Release
 
-1. Go to your repo: `https://github.com/YOUR_USERNAME/asset-cleaner`
+1. Go to your repo: `https://github.com/m00nbek/asset-cleaner`
 2. Click "Releases" → "Create a new release"
 3. Click "Choose a tag" → type `v1.0.0` → "Create new tag"
 4. Release title: `v1.0.0 - Initial Release`
@@ -97,13 +97,13 @@ Find and remove unused assets from Xcode projects with intelligent name matching
 
 ### Via Homebrew
 \`\`\`bash
-brew tap YOUR_USERNAME/tap
+brew tap m00nbek/tap
 brew install assetcleaner
 \`\`\`
 
 ### Via pip
 \`\`\`bash
-pip3 install git+https://github.com/YOUR_USERNAME/asset-cleaner.git
+pip3 install git+https://github.com/m00nbek/asset-cleaner.git
 \`\`\`
 
 ## Usage
@@ -128,7 +128,7 @@ assetcleaner
 
 ```bash
 # Download your release tarball
-curl -L https://github.com/YOUR_USERNAME/asset-cleaner/archive/v1.0.0.tar.gz -o asset-cleaner.tar.gz
+curl -L https://github.com/m00nbek/asset-cleaner/archive/v1.0.0.tar.gz -o asset-cleaner.tar.gz
 
 # Get SHA256
 shasum -a 256 asset-cleaner.tar.gz
@@ -140,7 +140,7 @@ shasum -a 256 asset-cleaner.tar.gz
 ```bash
 # Clone your tap
 cd ~/Developer
-git clone https://github.com/YOUR_USERNAME/homebrew-tap.git
+git clone https://github.com/m00nbek/homebrew-tap.git
 cd homebrew-tap
 
 # Copy formula
@@ -152,8 +152,8 @@ nano assetcleaner.rb
 
 Update these lines:
 ```ruby
-homepage "https://github.com/YOUR_USERNAME/asset-cleaner"
-url "https://github.com/YOUR_USERNAME/asset-cleaner/archive/v1.0.0.tar.gz"
+homepage "https://github.com/m00nbek/asset-cleaner"
+url "https://github.com/m00nbek/asset-cleaner/archive/v1.0.0.tar.gz"
 sha256 "PASTE_YOUR_SHA256_HERE"
 ```
 
@@ -169,7 +169,7 @@ git push origin main
 
 ```bash
 # Add your tap
-brew tap YOUR_USERNAME/tap
+brew tap m00nbek/tap
 
 # Install
 brew install assetcleaner
@@ -183,7 +183,7 @@ assetcleaner --help
 Users can install directly without Homebrew:
 
 ```bash
-pip3 install git+https://github.com/YOUR_USERNAME/asset-cleaner.git
+pip3 install git+https://github.com/m00nbek/asset-cleaner.git
 ```
 
 ## 🎉 Share with Others
@@ -192,13 +192,13 @@ Once published, share this installation command:
 
 ### For Homebrew Users:
 ```bash
-brew tap YOUR_USERNAME/tap
+brew tap m00nbek/tap
 brew install assetcleaner
 ```
 
 ### For pip Users:
 ```bash
-pip3 install git+https://github.com/YOUR_USERNAME/asset-cleaner.git
+pip3 install git+https://github.com/m00nbek/asset-cleaner.git
 ```
 
 ### Usage:
@@ -207,14 +207,14 @@ cd /path/to/xcode/project
 assetcleaner
 ```
 
-## 📝 Update Your README
+## 📝 README Updated
 
-Before publishing, update `README.md`:
+The README has been updated with:
 
-1. Replace `yourusername` with your actual GitHub username
-2. Update the installation URLs
-3. Add screenshots if desired
-4. Add your contact info
+1. ✅ GitHub username set to `m00nbek`
+2. ✅ All installation URLs updated
+3. ✅ Example paths use generic project names
+4. Ready to publish!
 
 ## 🔄 Making Updates
 

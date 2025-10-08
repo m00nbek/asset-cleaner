@@ -15,7 +15,7 @@ setup(
     description="Find and remove unused assets from Xcode projects",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/asset-cleaner",
+    url="https://github.com/m00nbek/asset-cleaner",
     packages=find_packages(),
     python_requires=">=3.8",
     entry_points={
